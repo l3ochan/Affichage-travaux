@@ -30,7 +30,7 @@ Sub Allzones()
     Dim startRow As Long
     startRow = 2
     sourceSheet.Cells.Font.Size = 20
-    sourceSheet.Range("G1").MergeArea.Copy Destination:=destinationSheet.Range("F2")
+    sourceSheet.Range("G1").MergeArea.Copy Destination:=destinationSheet.Range("G2")
     '=======================================================================
     ' Boucle pour mettre à jour la plage visible
     Do While True
