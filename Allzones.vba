@@ -30,12 +30,14 @@ Sub Allzones()
     ' Définir la ligne de début pour la copie des données
     Dim startRow As Long
     startRow = 2
+    StopCodeAcc = False
     sourceSheet.Cells.Font.Size = 20
     sourceSheet.Range("G1").MergeArea.Copy Destination:=destinationSheet.Range("G2")
     '=======================================================================
     ' Boucle pour mettre à jour la plage visible
     Do While True
         DoEvents
+        If StopCodeAcc Then Exit Do
         ' Vider cellules
         With destinationSheet.Cells.Range("A4:F33")
             .ClearContents
@@ -44,7 +46,7 @@ Sub Allzones()
         End With
         ' Copier les données dans la plage visible
         sourceSheet.Range("A" & startRow & ":M" & (startRow + 30)).Copy Destination:=visibleRange
-
+        DoEvents
         ' Incrementer la ligne de départ
         startRow = startRow + 33
         If startRow > lastRow Then
