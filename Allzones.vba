@@ -5,6 +5,7 @@ Sub Allzones()
     Application.CommandBars("Worksheet Menu Bar").Enabled = False
     ActiveWindow.DisplayHeadings = False
     Application.DisplayScrollBars = False
+    Application.DisplayStatusBar = False
     Application.DisplayAlerts = False
     Sheets("AllZones Affichage").Activate
     
