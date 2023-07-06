@@ -36,7 +36,7 @@ Sub Allzones()
     Do While True
         DoEvents
         ' Vider cellules
-        With destinationSheet.Cells.Range("A2:F33")
+        With destinationSheet.Cells.Range("A4:F33")
             .ClearContents
             .Interior.Color = RGB(255, 255, 255)
             .Borders.LineStyle = xlNone ' supprimer les bordures
@@ -45,7 +45,7 @@ Sub Allzones()
         sourceSheet.Range("A" & startRow & ":M" & (startRow + 30)).Copy Destination:=visibleRange
 
         ' Incrementer la ligne de départ
-        startRow = startRow + 38
+        startRow = startRow + 33
         If startRow > lastRow Then
             startRow = 4
         End If
