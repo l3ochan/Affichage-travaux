@@ -42,6 +42,7 @@ Sub Affichage()
         End If
     Next cell
     StopCodeAcc = False
+    'Mettre la police a 20 de la feuille de source
     sourceSheet.Cells.Font.Size = 20
     'Affichage du numéro & jours de la semaine
     sourceSheet.Range("G1").MergeArea.Copy Destination:=destinationSheet.Range("F2")
@@ -130,3 +131,4 @@ StopCodeAcc = False
 fullCells = False
 ThisWorkbook.RefreshAll ' Refresh le document
 End Sub
+
