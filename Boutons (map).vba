@@ -1,6 +1,8 @@
+
 Public ValChosenBat As String
 Public StopCodeAcc As Boolean
 
+'Bouton de choix de bâtiments simple (Ex Bat DA)
 Sub Boutons_choix_bat()
     Dim btn As Object
     Set btn = ActiveSheet.Buttons(Application.Caller)
@@ -8,10 +10,12 @@ Sub Boutons_choix_bat()
     Sheets("Affichage").Activate
     Affichage
 End Sub
+'Bouton d'arrêt et retour a l'acceuil
 Sub StopCode()
     StopCodeAcc = True
     Sheets("Acceuil").Activate
 End Sub
+'Bouton de choix de bâtiments double (Ex BA-BB)
 Sub Multibatbut()
     Dim btn As Object
     Set btn = ActiveSheet.Buttons(Application.Caller)
