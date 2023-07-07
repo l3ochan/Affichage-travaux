@@ -7,14 +7,14 @@ Sub Allzones()
     Application.DisplayScrollBars = False
     Application.DisplayStatusBar = False
     Application.DisplayAlerts = False
-    Sheets("AllZones Affichage").Activate
+    Sheets("Multibat Affichage").Activate
     
 
     ' Définir la source et la destination
     Dim sourceSheet As Worksheet
     Dim destinationSheet As Worksheet
     Set sourceSheet = ThisWorkbook.Sheets("Source Affichage")
-    Set destinationSheet = ThisWorkbook.Sheets("AllZones Affichage")
+    Set destinationSheet = ThisWorkbook.Sheets("Multibat Affichage")
     ' Trouver la dernière cellule non vide dans la colonne spécifiée
     Dim lastCell As Range
     Set lastCell = sourceSheet.Cells(sourceSheet.Rows.Count, "A").End(xlUp)
@@ -25,21 +25,30 @@ Sub Allzones()
 
     ' Définir la plage de cellules visible dans la feuille de destination
     Dim visibleRange As Range
-    Set visibleRange = destinationSheet.Range("A2:M33")
+    Set visibleRange = destinationSheet.Range("A4:M33")
+    
+    With destinationSheet.Range("A1:M1")
+        .Merge
+        .Value = "Données pour toute les zones"
+        .HorizontalAlignment = xlCenter
+        .Font.Bold = True
+        .Font.Size = 26
+    End With
 
     ' Définir la ligne de début pour la copie des données
     Dim startRow As Long
-    startRow = 2
+    startRow = 4
     StopCodeAcc = False
     sourceSheet.Cells.Font.Size = 20
     sourceSheet.Range("G1").MergeArea.Copy Destination:=destinationSheet.Range("G2")
+    sourceSheet.Range("G3:M3").Copy Destination:=destinationSheet.Range("G3:M3")
     '=======================================================================
     ' Boucle pour mettre à jour la plage visible
     Do While True
         DoEvents
         If StopCodeAcc Then Exit Do
         ' Vider cellules
-        With destinationSheet.Cells.Range("A4:F33")
+        With destinationSheet.Cells.Range("A5:F33")
             .ClearContents
             .Interior.Color = RGB(255, 255, 255)
             .Borders.LineStyle = xlNone ' supprimer les bordures
@@ -56,7 +65,7 @@ Sub Allzones()
         ' Attendre 1 seconde avant de mettre à jour à nouveau la plage visible
         Application.Wait (Now + TimeValue("0:00:10"))
     Loop
-
+ThisWorkbook.RefreshAll
 End Sub
 
 
