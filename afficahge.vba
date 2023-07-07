@@ -1,3 +1,4 @@
+'Module dev par Leonard
 Sub Affichage()
     '=================================Init=================================
     ' Masquer l'interface utilisateur pour afficher le classeur en plein écran
@@ -46,7 +47,7 @@ Sub Affichage()
     sourceSheet.Cells.Font.Size = 20
     'Affichage du numéro & jours de la semaine
     sourceSheet.Range("G1").MergeArea.Copy Destination:=destinationSheet.Range("F2")
-    sourceSheet.Range("G3:M3").Copy Destination:=destinationSheet.Range("F3:L3")
+    sourceSheet.Range("G3:M3").Copy Destination:=destinationSheet.Range("F4:L4")
     '=======================================================================
     'Clear tout
     With destinationSheet.Range("A" & destRow & ":L33")
@@ -131,4 +132,5 @@ StopCodeAcc = False
 fullCells = False
 ThisWorkbook.RefreshAll ' Refresh le document
 End Sub
+
 
