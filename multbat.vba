@@ -1,3 +1,4 @@
+'Module dev par Leonard
 Sub Multibat()
     '=================================Init=================================
     ' Masquer l'interface utilisateur pour afficher le classeur en plein écran
@@ -46,7 +47,7 @@ Sub Multibat()
     sourceSheet.Cells.Font.Size = 20
     'Affichage du numéro & jours de la semaine
     sourceSheet.Range("G1").MergeArea.Copy Destination:=destinationSheet.Range("G2")
-    sourceSheet.Range("G3:M3").Copy Destination:=destinationSheet.Range("G3:M3")
+    sourceSheet.Range("G3:M3").Copy Destination:=destinationSheet.Range("G4:M4")
     '=======================================================================
     'Clear tout
     With destinationSheet.Range("A" & destRow & ":M33")
@@ -135,4 +136,5 @@ Sub Multibat()
     fullCells = False
     Workbooks(1).RefreshAll ' Refresh le document
 End Sub
+
 
