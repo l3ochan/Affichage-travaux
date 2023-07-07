@@ -95,9 +95,12 @@ Sub Multibat()
                         rowCounter = rowCounter + 1
                     End With
                 Else
-                    Application.Wait (Now + TimeValue("0:00:10")) ' Attendre 10 secondes
+                    Application.Wait (Now + TimeValue("0:00:1")) ' Attendre 10 secondes
                     destRow = 5
-                    With destinationSheet.Range("A" & destRow & ":L33")
+                    With destinationSheet.Range("A" & destRow & ":M33")
+                        .ClearContents
+                        .Interior.Color = RGB(255, 255, 255)
+                        .Borders.LineStyle = xlNone
                         sourceSheet.Range("A" & i & ":M" & i).Copy Destination:=destinationSheet.Range("A" & destRow & ":M" & destRow)
                         destRow = destRow + 1
                         rowCounter = rowCounter + 1
@@ -136,5 +139,6 @@ Sub Multibat()
     fullCells = False
     Workbooks(1).RefreshAll ' Refresh le document
 End Sub
+
 
 
