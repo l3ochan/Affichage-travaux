@@ -24,14 +24,17 @@ Sub Affichage()
     startRow = 3
     ' Définir la ligne de destination
     Dim destRow As Long
-    destRow = 4
+    destRow = 5
     'Compteur de lignes de la feuille d'origine
     Dim rowCounter As Integer
     rowCounter = 0
+    'état tableau plein
     Dim fullCells As Boolean
     fullCells = False
+    'nombre de cellules correspondantes au batiment choisi
     Dim corespondingRow As Integer
     corespondingRow = 0
+    'Comptage des cellules correspondantes
     Dim cell As Range
     For Each cell In sourceSheet.Range("A3:A" & lastRow)
         If UCase(cell.Value) = UCase(ValChosenBat) Then ' Utilise UCase pour ignorer la casse
@@ -40,8 +43,9 @@ Sub Affichage()
     Next cell
     StopCodeAcc = False
     sourceSheet.Cells.Font.Size = 20
+    'Affichage du numéro & jours de la semaine
     sourceSheet.Range("G1").MergeArea.Copy Destination:=destinationSheet.Range("F2")
-    
+    sourceSheet.Range("G3:M3").Copy Destination:=destinationSheet.Range("F3:L3")
     '=======================================================================
     'Clear tout
     With destinationSheet.Range("A" & destRow & ":L33")
@@ -89,7 +93,7 @@ Sub Affichage()
                     End With
                 Else
                     Application.Wait (Now + TimeValue("0:00:10")) ' Attendre 10 secondes
-                    destRow = 4
+                    destRow = 5
                     With destinationSheet.Range("A" & destRow & ":L33")
                         sourceSheet.Range("B" & i & ":M" & i).Copy Destination:=destinationSheet.Range("A" & destRow & ":J" & destRow)
                         destRow = destRow + 1
@@ -110,7 +114,7 @@ Sub Affichage()
     Loop
 If fullCells = True Then
     startRow = 3
-    destRow = 4
+    destRow = 5
     'Tout supprimer avant d'afficher de nouvelles données
     With destinationSheet.Range("A" & destRow & ":L33")
         .ClearContents
@@ -124,6 +128,5 @@ If fullCells = True Then
 End If
 StopCodeAcc = False
 fullCells = False
-Workbooks(1).RefreshAll ' Refresh le document
+ThisWorkbook.RefreshAll ' Refresh le document
 End Sub
-
