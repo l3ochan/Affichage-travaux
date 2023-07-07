@@ -95,7 +95,7 @@ Sub Multibat()
                         rowCounter = rowCounter + 1
                     End With
                 Else
-                    Application.Wait (Now + TimeValue("0:00:1")) ' Attendre 10 secondes
+                    Application.Wait (Now + TimeValue("0:00:15")) ' Attendre 15 secondes
                     destRow = 5
                     With destinationSheet.Range("A" & destRow & ":M33")
                         .ClearContents
@@ -111,7 +111,7 @@ Sub Multibat()
             If corespondingRow > 33 Then
                 If rowCounter = corespondingRow Then
                     fullCells = True
-                    Application.Wait (Now + TimeValue("0:00:10")) ' Attendre 10 secondes
+                    Application.Wait (Now + TimeValue("0:00:15")) ' Attendre 15 secondes
                     Exit Do
                 End If
             Else
@@ -131,7 +131,7 @@ Sub Multibat()
             ' Défusionner les cellules avant de copier
             destinationSheet.Range("A" & destRow & ":M" & destRow).UnMerge
             fullCells = False
-            Affichage
+            Multibat
         End With
     End If
     
