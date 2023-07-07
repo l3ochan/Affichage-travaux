@@ -26,7 +26,7 @@ Sub Allzones()
     ' Définir la plage de cellules visible dans la feuille de destination
     Dim visibleRange As Range
     Set visibleRange = destinationSheet.Range("A4:M33")
-    
+    'Afficher le nom de la zone qui concerne les données
     With destinationSheet.Range("A1:M1")
         .Merge
         .Value = "Données pour toute les zones"
