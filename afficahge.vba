@@ -94,9 +94,12 @@ Sub Affichage()
                         rowCounter = rowCounter + 1
                     End With
                 Else
-                    Application.Wait (Now + TimeValue("0:00:10")) ' Attendre 10 secondes
+                    Application.Wait (Now + TimeValue("0:00:15")) ' Attendre 15 secondes
                     destRow = 5
                     With destinationSheet.Range("A" & destRow & ":L33")
+                        .ClearContents
+                        .Interior.Color = RGB(255, 255, 255)
+                        .Borders.LineStyle = xlNone
                         sourceSheet.Range("B" & i & ":M" & i).Copy Destination:=destinationSheet.Range("A" & destRow & ":J" & destRow)
                         destRow = destRow + 1
                         rowCounter = rowCounter + 1
@@ -106,7 +109,7 @@ Sub Affichage()
                 If corespondingRow > 33 Then
                     If (rowCounter = corespondingRow) Then
                         fullCells = True
-                        Application.Wait (Now + TimeValue("0:00:10")) ' Attendre 10 secondes
+                        Application.Wait (Now + TimeValue("0:00:15")) ' Attendre 15 secondes
                         Exit Do
                     End If
                 Else
@@ -132,5 +135,6 @@ StopCodeAcc = False
 fullCells = False
 ThisWorkbook.RefreshAll ' Refresh le document
 End Sub
+
 
 
