@@ -1,3 +1,4 @@
+'Module dev par Leonard
 Sub Allzones()
 '=============================Init==========================================
     ' Masquer l'interface utilisateur pour afficher le classeur en plein écran
@@ -39,9 +40,11 @@ Sub Allzones()
     Dim startRow As Long
     startRow = 4
     StopCodeAcc = False
+    'Mettre la police a 20 de la feuille de source
     sourceSheet.Cells.Font.Size = 20
+    'Affichage du numéro & jours de la semaine
     sourceSheet.Range("G1").MergeArea.Copy Destination:=destinationSheet.Range("G2")
-    sourceSheet.Range("G3:M3").Copy Destination:=destinationSheet.Range("G3:M3")
+    sourceSheet.Range("G3:M3").Copy Destination:=destinationSheet.Range("G4:M4")
     '=======================================================================
     ' Boucle pour mettre à jour la plage visible
     Do While True
@@ -67,6 +70,7 @@ Sub Allzones()
     Loop
 ThisWorkbook.RefreshAll
 End Sub
+
 
 
 
