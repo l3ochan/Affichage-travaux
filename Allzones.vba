@@ -36,8 +36,13 @@ Sub Allzones()
     fullCells = False
     'nombre de cellules correspondantes au batiment choisi
     StopCodeAcc = False
-    'Mettre la police a 20 de la feuille de source
-    sourceSheet.Cells.Font.Size = 20
+    'Mettre la police a 20 et centrer le texte des cellules la feuille de source
+    With sourceSheet.Cells
+        .Font.Size = 20
+        .HorizontalAlignment = xlCenter
+        .VerticalAlignment = xlCenter
+    End With
+    'Affichage du
     'Affichage du numéro & jours de la semaine
     sourceSheet.Range("G1").MergeArea.Copy Destination:=destinationSheet.Range("G2")
     sourceSheet.Range("G3:M3").Copy Destination:=destinationSheet.Range("G4:M4")
