@@ -172,7 +172,7 @@ If fullCells = True Then
         'Défusionner les cellules avant de copier
         destinationSheet.Range("A" & destRow & ":E" & destRow).UnMerge
         fullCells = False
-        Affichage2
+        Affichage
     End With
 End If
 StopCodeAcc = False
