@@ -172,7 +172,7 @@ If fullCells = True Then
         'Défusionner les cellules avant de copier
         destinationSheet.Range("A" & destRow & ":E" & destRow).UnMerge
         fullCells = False
-        Multibat2
+        Multibat
     End With
 End If
 StopCodeAcc = False
