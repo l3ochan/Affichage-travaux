@@ -9,10 +9,6 @@ Sub Affichage()
     Application.DisplayAlerts = False
     Application.CommandBars("Full Screen").Visible = False
     '=================================Init Var=================================
-    Dim btn As Object
-    Set btn = ActiveSheet.Buttons(Application.Caller)
-    ValChosenBat = btn.Text
-    Sheets("Affichage").Activate
     ' Définir la source et la destination
     Dim destColumn As Integer 'Colonne de destination pour les jours et semaines
     Dim sourceSheet As Worksheet
@@ -179,9 +175,3 @@ StopCodeAcc = False
 fullCells = False
 ThisWorkbook.RefreshAll ' Refresh le document
 End Sub
-
-
-
-
-
-
