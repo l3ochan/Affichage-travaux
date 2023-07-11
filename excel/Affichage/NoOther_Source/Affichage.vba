@@ -24,7 +24,7 @@ Sub Affichage()
     Set lastCell = sourceSheet.Cells(sourceSheet.Rows.Count, "A").End(xlUp)
     ' Obtenir le numéro de la dernière ligne
     Dim lastRow As Long
-    lastRow = lastCell.row '(Dernière ligne remplie)
+    lastRow = lastCell.Row '(Dernière ligne remplie)
     ' Définir la ligne de début pour la copie des données
     Dim startRow As Long
     startRow = 3
@@ -179,3 +179,9 @@ StopCodeAcc = False
 fullCells = False
 ThisWorkbook.RefreshAll ' Refresh le document
 End Sub
+
+
+
+
+
+
