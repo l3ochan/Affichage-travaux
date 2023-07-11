@@ -9,10 +9,6 @@ Sub Multibat()
     Application.DisplayAlerts = False
     Application.CommandBars("Full Screen").Visible = False
     '=================================Init Var=================================
-    Dim btn As Object
-    Set btn = ActiveSheet.Buttons(Application.Caller)
-    ValChosenBat = btn.Text
-    Sheets("Multibat Affichage").Activate
     ' Définir la source et la destination
     Dim destColumn As Integer 'Colonne de destination pour les jours et semaines
     Dim sourceSheet As Worksheet
@@ -63,12 +59,11 @@ Sub Multibat()
     '=======================================================================
     'Clear tout
     With destinationSheet.Range("A" & destRow & ":L33")
+        .UnMerge
         .ClearContents
         .Interior.Color = RGB(255, 255, 255)
         .Borders.LineStyle = xlNone ' supprimer les bordures
         'Défusionner les cellules avant de copier
-        .UnMerge
-        
     End With
     
     ' Afficher "Données pour le bâtiment: ValChosenBat" en haut de la feuille de destination
@@ -179,8 +174,3 @@ StopCodeAcc = False
 fullCells = False
 ThisWorkbook.RefreshAll ' Refresh le document
 End Sub
-
-
-
-
-
