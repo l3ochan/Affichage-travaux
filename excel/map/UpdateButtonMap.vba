@@ -8,6 +8,7 @@ Sub UpdateButtonMap()
     Dim hasWork As Boolean
 
     Set homeSheet = ThisWorkbook.Sheets("Accueil Affichage")
+    Set sourceSheet = ThisWorkbook.Sheets("Planning commun des travaux DDP")
     lastRow = sourceSheet.Cells(sourceSheet.Rows.Count, "A").End(xlUp).Row
     
     ' Parcourir tous les boutons sur la feuille d'accueil
