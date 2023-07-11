@@ -1,4 +1,4 @@
-
+'Module dev par Leonard
 Public ValChosenBat As String
 Public StopCodeAcc As Boolean
 
@@ -13,7 +13,8 @@ End Sub
 'Bouton d'arrêt et retour a l'acceuil
 Sub StopCode()
     StopCodeAcc = True
-    Sheets("Acceuil").Activate
+    UpdateButtonMap
+    Sheets("Accueil Affichage").Activate
 End Sub
 'Bouton de choix de bâtiments double (Ex BA-BB)
 Sub Multibatbut()
@@ -23,4 +24,5 @@ Sub Multibatbut()
     Sheets("Multibat Affichage").Activate
     Multibat
 End Sub
+
 
