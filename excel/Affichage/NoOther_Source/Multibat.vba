@@ -15,6 +15,7 @@ Sub Multibat()
     Dim destinationSheet As Worksheet
     Set sourceSheet = ThisWorkbook.Sheets("Planning commun des travaux DDP")
     Set destinationSheet = ThisWorkbook.Sheets("Multibat Affichage")
+    ActiveWindow.Zoom = 63
     ' Trouver la dernière cellule non vide dans la colonne spécifiée
     Dim lastCell As Range
     Set lastCell = sourceSheet.Cells(sourceSheet.Rows.Count, "A").End(xlUp)
@@ -27,7 +28,7 @@ Sub Multibat()
     ' Définir la ligne de destination
     Dim destRow As Long
     destRow = 5
-    'Compteur de lignes de la feuille de destination
+    'Compteur de lignes de la feuille d'origine
     Dim rowCounter As Integer
     rowCounter = 0
     'état tableau plein
