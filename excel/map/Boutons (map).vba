@@ -13,8 +13,8 @@ End Sub
 'Bouton d'arrêt et retour a l'acceuil
 Sub StopCode()
     StopCodeAcc = True
-    UpdateButtonMap
     Sheets("Accueil Affichage").Activate
+    ActiveWindow.Zoom = 88
 End Sub
 'Bouton de choix de bâtiments double (Ex BA-BB)
 Sub Multibatbut()
