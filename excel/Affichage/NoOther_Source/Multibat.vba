@@ -27,7 +27,7 @@ Sub Multibat()
     ' Définir la ligne de destination
     Dim destRow As Long
     destRow = 5
-    'Compteur de lignes de la feuille d'origine
+    'Compteur de lignes de la feuille de destination
     Dim rowCounter As Integer
     rowCounter = 0
     'état tableau plein
@@ -58,7 +58,7 @@ Sub Multibat()
     
     '=======================================================================
     'Clear tout
-    With destinationSheet.Range("A" & destRow & ":L33")
+    With destinationSheet.Range("A" & destRow & ":M33")
         .UnMerge
         .ClearContents
         .Interior.Color = RGB(255, 255, 255)
@@ -76,7 +76,7 @@ Sub Multibat()
     End With
     ' Si aucune donnée n'a été trouvée, afficher le message d'erreur
     If corespondingRow = 0 Then
-        With destinationSheet.Range("A" & destRow & ":E33")
+        With destinationSheet.Range("A" & destRow & ":M33")
             .Merge
             .Value = "Aucune entrée pour la zone: " & ValChosenBat
             .HorizontalAlignment = xlCenter
@@ -160,7 +160,7 @@ If fullCells = True Then
     startRow = 3
     destRow = 5
     'Tout supprimer avant d'afficher de nouvelles données
-    With destinationSheet.Range("A" & destRow & ":E33")
+    With destinationSheet.Range("A" & destRow & ":M33")
         .ClearContents
         .Interior.Color = RGB(255, 255, 255)
         .Borders.LineStyle = xlNone ' supprimer les bordures
