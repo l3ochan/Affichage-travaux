@@ -11,10 +11,11 @@ Sub Affichage()
     '=================================Init Var=================================
     ' Définir la source et la destination
     Dim destColumn As Integer 'Colonne de destination pour les jours et semaines
-    Dim sourceSheet As Worksheet 'déclaration variable feuille source
-    Dim destinationSheet As Worksheet 'déclaration variable feuille destination
-    Set sourceSheet = ThisWorkbook.Sheets("Planning commun des travaux DDP") 'definition de la feuille source
+    Dim sourceSheet As Worksheet
+    Dim destinationSheet As Worksheet
+    Set sourceSheet = ThisWorkbook.Sheets("Planning commun des travaux DDP")
     Set destinationSheet = ThisWorkbook.Sheets("Affichage")
+    ActiveWindow.Zoom = 62
     ' Trouver la dernière cellule non vide dans la colonne spécifiée
     Dim lastCell As Range
     Set lastCell = sourceSheet.Cells(sourceSheet.Rows.Count, "A").End(xlUp)
@@ -23,11 +24,11 @@ Sub Affichage()
     lastRow = lastCell.Row '(Dernière ligne remplie)
     ' Définir la ligne de début pour la copie des données
     Dim startRow As Long
-    startRow = 4
+    startRow = 3
     ' Définir la ligne de destination
     Dim destRow As Long
     destRow = 5
-    'Compteur de lignes de la feuille de destination
+    'Compteur de lignes de la feuille d'origine
     Dim rowCounter As Integer
     rowCounter = 0
     'état tableau plein
