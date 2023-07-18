@@ -15,7 +15,7 @@ Sub Affichage()
     Dim destinationSheet As Worksheet
     Set sourceSheet = ThisWorkbook.Sheets("Planning commun des travaux DDP")
     Set destinationSheet = ThisWorkbook.Sheets("Affichage")
-    ActiveWindow.Zoom = 62
+    ActiveWindow.Zoom = 52
     ' Trouver la dernière cellule non vide dans la colonne spécifiée
     Dim lastCell As Range
     Set lastCell = sourceSheet.Cells(sourceSheet.Rows.Count, "A").End(xlUp)
@@ -34,6 +34,14 @@ Sub Affichage()
     'état tableau plein
     Dim fullCells As Boolean
     fullCells = False
+    sourceSheet.Range("A4:A" & lastRow).Sort Key1:=sourceSheet.Range("A4:A" & lastRow), Order1:=xlAscending, Header:=xlNo
+    If sourceSheet.AutoFilterMode Then
+        ' Si la colonne A est filtrée
+        If sourceSheet.AutoFilter.Filters(1).On Then
+            ' Afficher tout
+            sourceSheet.Range("A4").AutoFilter Field:=1
+        End If
+    End If
     'nombre de cellules correspondantes au batiment choisi
     Dim corespondingRow As Integer
     corespondingRow = 0
