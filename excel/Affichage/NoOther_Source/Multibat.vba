@@ -8,6 +8,7 @@ Sub Multibat()
     Application.DisplayScrollBars = False
     Application.DisplayAlerts = False
     Application.CommandBars("Full Screen").Visible = False
+    StopCodeAcc = False
     '=================================Init Var=================================
     ' Définir la source et la destination
     Dim destColumn As Integer 'Colonne de destination pour les jours et semaines
@@ -24,7 +25,7 @@ Sub Multibat()
     lastRow = lastCell.Row '(Dernière ligne remplie)
     ' Définir la ligne de début pour la copie des données
     Dim startRow As Long
-    startRow = 3
+    startRow = 4
     ' Définir la ligne de destination
     Dim destRow As Long
     destRow = 5
@@ -34,7 +35,7 @@ Sub Multibat()
     'état tableau plein
     Dim fullCells As Boolean
     fullCells = False
-    sourceSheet.Range("A4:A" & lastRow).Sort Key1:=sourceSheet.Range("A4:A" & lastRow), Order1:=xlAscending, Header:=xlNo
+    'Tout afficher (retirer filtre colonne A)
     If sourceSheet.AutoFilterMode Then
         ' Si la colonne A est filtrée
         If sourceSheet.AutoFilter.Filters(1).On Then
@@ -42,13 +43,15 @@ Sub Multibat()
             sourceSheet.Range("A4").AutoFilter Field:=1
         End If
     End If
+    'Faire un tri ascendant (A-Z) des données maintenant visible
+    sourceSheet.Range("A4:A" & lastRow).Sort Key1:=sourceSheet.Range("A4:A" & lastRow), Order1:=xlAscending, Header:=xlNo
     'nombre de cellules correspondantes au batiment choisi
     Dim corespondingRow As Integer
     corespondingRow = 0
     'Comptage des cellules correspondantes
     Dim cell As Range
     Dim cellD As Range
-    For i = 3 To lastRow
+    For i = 4 To lastRow
         Set cell = sourceSheet.Cells(i, "A")
         Set cellD = sourceSheet.Cells(i, "D")
     If LCase(cell.Value) Like "*" & LCase(ValChosenBat) & "*" Then
@@ -57,15 +60,14 @@ Sub Multibat()
             End If
         End If
     Next i
-    StopCodeAcc = False
+    '=======================================================================
+    '=================================Init Tableau=================================
     'Mettre la police a 20 et centrer le texte des cellules la feuille de source
     With sourceSheet.Cells
         .Font.Size = 20
         .HorizontalAlignment = xlCenter
         .VerticalAlignment = xlCenter
     End With
-    
-    '=======================================================================
     'Clear tout
     With destinationSheet.Range("A" & destRow & ":M33")
         .UnMerge
@@ -166,7 +168,7 @@ Sub Multibat()
             Next i
         Loop
 If fullCells = True Then
-    startRow = 3
+    startRow = 4
     destRow = 5
     'Tout supprimer avant d'afficher de nouvelles données
     With destinationSheet.Range("A" & destRow & ":M33")
