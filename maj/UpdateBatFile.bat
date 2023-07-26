@@ -9,5 +9,5 @@ timeout 1
 start "" "https://totalworkplace.sharepoint.com/sites/Runionpermistravaux/Documents partages/Reunion de coordination/Test Planning.xlsm"
 timeout 20
 color a
-echo Fichier de maj par Léonard :) 
+echo Fichier de maj par Leonard :) 
 start "" "%userprofile%\Downloads\Test planning.xlsm" 
