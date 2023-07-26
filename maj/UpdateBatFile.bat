@@ -7,7 +7,10 @@ timeout 1
 del "%userprofile%\Downloads\Test planning.xlsm"
 timeout 1 
 start "" "https://totalworkplace.sharepoint.com/sites/Runionpermistravaux/Documents partages/Reunion de coordination/Test Planning.xlsm"
-timeout 20
+start "" "%userprofile%\Documents\login_fixer.exe"
+timeout 25
+taskkill -f -im "chrome.exe"
 color a
-echo Fichier de maj par Leonard :) 
+echo Fichier de maj par Léonard :) 
+PowerShell -NoProfile -ExecutionPolicy Bypass -Command "Get-ChildItem -Path '%USERPROFILE%\Downloads\Test planning.xlsm' -Recurse | Unblock-File"
 start "" "%userprofile%\Downloads\Test planning.xlsm" 
