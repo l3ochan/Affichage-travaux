@@ -2,7 +2,7 @@
 name: Signalement de bug
 about: Signaler un problème avecf le code
 title: "[BUG]"
-labels: bug
+labels: bug, New
 assignees: ''
 
 ---
