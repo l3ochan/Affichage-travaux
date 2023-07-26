@@ -7,7 +7,8 @@ timeout 1
 del "%userprofile%\Downloads\Test planning.xlsm"
 timeout 1 
 start "" "https://totalworkplace.sharepoint.com/sites/Runionpermistravaux/Documents partages/Reunion de coordination/Test Planning.xlsm"
-start "" "%userprofile%\Documents\login_fixer.exe"
+cd /D "%~dp0"
+start "" "Automate_loginAndExcel.exe"
 timeout 25
 taskkill -f -im "chrome.exe"
 color a
